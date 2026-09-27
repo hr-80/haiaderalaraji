@@ -1,123 +1,296 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="حيدر الأعرجي">
-    <meta name="application-name" content="حيدر الأعرجي">
-    <meta name="theme-color" content="#000000">
-    <meta name="full-screen" content="yes">
-    <meta name="browsermode" content="application">
-    <title>الرادود حيدر الأعرجي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        body {
-            font-family: 'Cairo', sans-serif;
-            min-height: 100vh;
-            background: #000;
-            background-image: url('https://i.top4top.io/p_3819hpeqm1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 0 20px 60px 20px;
-        }
-        
-        .cards-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            z-index: 10;
-        }
-        
-        .card {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            width: 100%;
-            padding: 14px 24px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(12px);
-            border-radius: 60px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            transition: all 0.25s ease;
-            font-family: 'Cairo', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            color: #ffffff;
-            border: 1.5px solid rgba(255, 255, 255, 0.6);
-        }
-        
-        /* جميع الكروت عند المرور أو الضغط يصبح لون النص برتقالي فقط */
-        .card:hover, .card:active {
-            color: #ffffff;  /* برتقالي */
-            transform: translateY(-3px);
-            background: rgba(0, 0, 0, 0.85);
-            border-color: rgba(218, 165, 32, 1);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.5);
-        }
-        
-        /* عند الضغط فقط حركة مختلفة */
-        .card:active {
-            transform: translateY(2px);
-        }
-        
-        @media (max-width: 550px) {
-            body {
-                padding: 0 16px 40px 16px;
-            }
-            .card {
-                padding: 12px 20px;
-                font-size: 16px;
-            }
-            .cards-container {
-                gap: 12px;
-                max-width: 260px;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .card {
-                padding: 16px 28px;
-                font-size: 20px;
-            }
-            .cards-container {
-                max-width: 350px;
-                gap: 16px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حيدر الأعرجي</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto','Segoe UI', Tahoma, sans-serif; }
+  body { background:#0f0f0f; color:#fff; padding-bottom:40px; }
+
+  /* الهيدر */
+  .header-banner {
+    width:100%; height:160px;
+    background-image:url('https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiweb2.png');
+    background-size:cover; background-position:center;
+    border-radius:0 0 12px 12px;
+  }
+
+  /* البروفايل */
+  .profile-section { display:flex; align-items:center; gap:16px; padding:16px; }
+  .profile-pic {
+    width:80px; height:80px; border-radius:50%;
+    object-fit:cover; border:3px solid #0f0f0f; flex-shrink:0;
+  }
+  .profile-info h1 { font-size:22px; font-weight:700; margin-bottom:6px; }
+  .profile-info .desc { font-size:13px; color:#aaa; font-weight:400; line-height:1.5; }
+
+  /* شريط الأقسام */
+  .tabs-bar {
+    display:flex; gap:24px; padding:12px 16px;
+    border-bottom:1px solid #272727; overflow-x:auto; scrollbar-width:none;
+  }
+  .tabs-bar::-webkit-scrollbar { display:none; }
+  .tab {
+    font-size:15px; font-weight:700; color:#fff;
+    text-decoration:none; white-space:nowrap;
+    padding-bottom:6px; transition:0.2s;
+  }
+  .tab:hover { opacity:0.7; }
+
+  /* ===== قسم الروابط ===== */
+  .links-section {
+    max-width:600px;
+    margin:0 auto;
+    padding:30px 16px 10px;
+    text-align:center;
+  }
+  .links-title {
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .links-desc {
+    font-size:14px;
+    color:#aaa;
+    line-height:1.6;
+    margin-bottom:28px;
+  }
+
+  /* كروت التواصل */
+  .links-list {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .link-card {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 18px;
+    background:#1f1f1f;
+    border-radius:10px;
+    text-decoration:none;
+    color:#fff;
+    font-size:15px;
+    font-weight:500;
+    transition:0.2s;
+  }
+  .link-card:hover {
+    background:#2a2a2a;
+    transform:translateY(-2px);
+  }
+  .link-card i {
+    font-size:20px;
+    width:24px;
+    text-align:center;
+  }
+
+  /* ===== التذييل ===== */
+  .footer {
+    margin-top:40px; padding:14px 16px;
+    border-top:1px solid #272727;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+  }
+  .social-icons {
+    display:flex; justify-content:center; flex-wrap:wrap; gap:14px;
+  }
+  .social-icons a {
+    width:42px; height:42px; border-radius:50%;
+    background:#1f1f1f;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; transition:0.2s; text-decoration:none; font-size:18px;
+  }
+  .social-icons a:hover { background:#333; transform:translateY(-3px); }
+  .footer-copy { font-size:11px; color:#666; }
+
+  @media (max-width:600px) {
+    .profile-pic { width:65px; height:65px; }
+    .profile-info h1 { font-size:18px; }
+    .header-banner { height:120px; }
+    .links-title { font-size:20px; }
+    .link-card { padding:12px 14px; font-size:14px; }
+    .link-card i { font-size:18px; }
+    .social-icons a { width:38px; height:38px; font-size:16px; }
+  }
+</style>
 </head>
 <body>
-    <div class="cards-container">
-        <!-- تم إزالة target="_blank" و rel="noopener noreferrer" -->
-        <a href="https://hr-80.github.io/video1" class="card">اللطميات والمجالس</a>
-        <a href="https://hr-80.github.io/video2" class="card">الموالد والأفراح</a>
-        <a href="https://hr-80.github.io/video3" class="card">الفيديوهات القصيرة</a>
-        <a href="https://hr-80.github.io/haiaderalaraji.com" class="card">مواقع التواصل الأجتماعي</a>
-        <a href="https://sites.google.com/view/haider-alaraji/home/application" class="card">حمل التطبيق من هنا</a>
 
+  <div class="header-banner"></div>
+
+  <div class="profile-section">
+    <img class="profile-pic" src="https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiweb1.jpg
+" alt="حيدر الأعرجي">
+    <div class="profile-info">
+      <h1>حيدر الأعرجي</h1>
+      <p class="desc">الموقع الرسمي للرادود حيدر الأعرجي</p>
     </div>
+  </div>
+
+  <div class="tabs-bar" id="tabsBar"></div>
+
+  <!-- قسم الروابط -->
+  <section class="links-section">
+    <h2 class="links-title" id="linksTitle"></h2>
+    <p class="links-desc" id="linksDesc"></p>
+    <div class="links-list" id="linksList"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="social-icons" id="socialIcons"></div>
+    <p class="footer-copy">© 2025 حيدر الأعرجي - جميع الحقوق محفوظة</p>
+  </footer>
+
+<script>
+/* ===== الأقسام ===== */
+const tabsData = `
+الصفحة الرئيسية
+https://hr-80.github.io/haiaderalaraji.com
+اللطميات والمجالس
+https://hr-80.github.io/video1/
+الموالد والأفراح
+https://hr-80.github.io/video2/
+Shorts
+https://hr-80.github.io/video3/
+التواصل الأجتماعي
+https://hr-80.github.io/haiaderalaraji/
+`;
+
+/* ===== عنوان الصفحة ووصفها ===== */
+const pageTitle = "تواصل معنا";
+const pageDesc = "تابعنا على منصات التواصل الاجتماعي للحصول على آخر الإصدارات والأخبار.";
+
+/* ===== كروت التواصل =====
+   اسم الأيقونة
+   اسم الكرت
+   الرابط
+   (المتاحة: facebook, instagram, youtube, tiktok, telegram, whatsapp, store, link)
+*/
+const linksData = `
+facebook
+فيسبوك
+https://www.facebook.com/hr.alaraji1
+instagram
+إنستغرام
+https://www.instagram.com/hr.alaraji
+youtube
+يوتيوب
+https://www.youtube.com/@hr.alaraji
+tiktok
+تيك توك
+https://www.tiktok.com/@hr.alaraji
+telegram
+تلجرام
+https://t.me/username
+whatsapp
+واتساب
+https://wa.me/9640000000000
+store
+متجر جوجل
+https://sites.google.com/view/haider-alaraji/home/application?pli=1&authuser=0
+link
+الموقع الألكتروني
+https://hr-80.github.io/haiaderalaraji.com
+`;
+
+/* ===== روابط التذييل ===== */
+const socialData = `
+facebook
+https://www.facebook.com/hr.alaraji1
+instagram
+https://www.instagram.com/hr.alaraji
+youtube
+https://www.youtube.com/@hr.alaraji
+tiktok
+https://www.tiktok.com/@hr.alaraji
+store
+https://sites.google.com/view/haider-alaraji/home/application?pli=1&authuser=0
+link
+https://hr-80.github.io/haiaderalaraji.com
+`;
+
+const socialIcons = {
+  facebook:  'fa-brands fa-facebook-f',
+  instagram: 'fa-brands fa-instagram',
+  youtube:   'fa-brands fa-youtube',
+  tiktok:    'fa-brands fa-tiktok',
+  telegram:  'fa-brands fa-telegram',
+  whatsapp:  'fa-brands fa-whatsapp',
+  store:     'fa-brands fa-google-play',
+  link:      'fa-solid fa-link'
+};
+
+/* بناء الأقسام */
+function buildTabs() {
+  const bar = document.getElementById('tabsBar');
+  const lines = tabsData.trim().split('\n').map(l=>l.trim()).filter(l=>l);
+  bar.innerHTML = '';
+  for (let i=0; i<lines.length; i+=2) {
+    const a = document.createElement('a');
+    a.className = 'tab';
+    a.href = lines[i+1] || '#';
+    a.textContent = lines[i];
+    bar.appendChild(a);
+  }
+}
+
+/* بناء العنوان والوصف */
+function buildPageInfo() {
+  document.getElementById('linksTitle').textContent = pageTitle;
+  document.getElementById('linksDesc').textContent = pageDesc;
+}
+
+/* بناء كروت التواصل */
+function buildLinks() {
+  const box = document.getElementById('linksList');
+  const lines = linksData.trim().split('\n').map(l=>l.trim()).filter(l=>l);
+  box.innerHTML = '';
+  for (let i=0; i<lines.length; i+=3) {
+    const key = lines[i].toLowerCase();
+    const name = lines[i+1];
+    const url = lines[i+2] || '#';
+    const icon = socialIcons[key];
+    if (!icon) continue;
+    const a = document.createElement('a');
+    a.className = 'link-card';
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.innerHTML = `<i class="${icon}"></i><span>${name}</span>`;
+    box.appendChild(a);
+  }
+}
+
+/* بناء أيقونات التذييل */
+function buildSocial() {
+  const box = document.getElementById('socialIcons');
+  const lines = socialData.trim().split('\n').map(l=>l.trim()).filter(l=>l);
+  box.innerHTML = '';
+  for (let i=0; i<lines.length; i+=2) {
+    const key = lines[i].toLowerCase();
+    const url = lines[i+1] || '#';
+    const icon = socialIcons[key];
+    if (!icon) continue;
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('aria-label', key);
+    a.innerHTML = `<i class="${icon}"></i>`;
+    box.appendChild(a);
+  }
+}
+
+buildTabs();
+buildPageInfo();
+buildLinks();
+buildSocial();
+</script>
+
 </body>
 </html>
