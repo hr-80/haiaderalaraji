@@ -1,5 +1,5 @@
 'use strict';
-const CACHE = 'haider-app-v2';
+const CACHE = 'haider-app-v3';
 const SHELL = ['./', './index.html', './manifest.json', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-192.png', './icons/maskable-512.png'];
 
 self.addEventListener('install', e => {
