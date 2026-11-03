@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حيدر الأعرجي</title>
+<title>حيدر الأعرجي - الرئيسية</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -12,7 +12,6 @@
   * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto','Segoe UI', Tahoma, sans-serif; }
   body { background:#0f0f0f; color:#fff; padding-bottom:40px; }
 
-  /* الهيدر */
   .header-banner {
     width:100%; height:160px;
     background-image:url('https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiweb2.png');
@@ -20,7 +19,6 @@
     border-radius:0 0 12px 12px;
   }
 
-  /* البروفايل */
   .profile-section { display:flex; align-items:center; gap:16px; padding:16px; }
   .profile-pic {
     width:80px; height:80px; border-radius:50%;
@@ -29,70 +27,56 @@
   .profile-info h1 { font-size:22px; font-weight:700; margin-bottom:6px; }
   .profile-info .desc { font-size:13px; color:#aaa; font-weight:400; line-height:1.5; }
 
-  /* شريط الأقسام */
   .tabs-bar {
     display:flex; gap:24px; padding:12px 16px;
     border-bottom:1px solid #272727; overflow-x:auto; scrollbar-width:none;
   }
   .tabs-bar::-webkit-scrollbar { display:none; }
   .tab {
-    font-size:15px; font-weight:700; color:#fff;
-    text-decoration:none; white-space:nowrap;
-    padding-bottom:6px; transition:0.2s;
-  }
-  .tab:hover { opacity:0.7; }
-
-  /* ===== قسم الروابط ===== */
-  .links-section {
-    max-width:600px;
-    margin:0 auto;
-    padding:30px 16px 10px;
-    text-align:center;
-  }
-  .links-title {
-    font-size:24px;
-    font-weight:700;
-    margin-bottom:10px;
-  }
-  .links-desc {
-    font-size:14px;
-    color:#aaa;
-    line-height:1.6;
-    margin-bottom:28px;
-  }
-
-  /* كروت التواصل */
-  .links-list {
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
-  .link-card {
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:14px 18px;
-    background:#1f1f1f;
-    border-radius:10px;
-    text-decoration:none;
-    color:#fff;
     font-size:15px;
-    font-weight:500;
+    font-weight:700;
+    color:#fff;
+    text-decoration:none;
+    white-space:nowrap;
+    padding-bottom:6px;
     transition:0.2s;
   }
-  .link-card:hover {
-    background:#2a2a2a;
-    transform:translateY(-2px);
+  .tab:hover { opacity:0.7; }
+  .tab.active { border-bottom:2px solid #fff; }
+
+  .player-wrapper {
+    width:100%;
+    aspect-ratio:16/9;
+    background:#000;
+    position:relative;
   }
-  .link-card i {
-    font-size:20px;
-    width:24px;
-    text-align:center;
+  .player-wrapper iframe,
+  .player-wrapper > div {
+    width:100% !important;
+    height:100% !important;
+    border:none;
+    position:absolute;
+    top:0; left:0;
   }
 
-  /* ===== التذييل ===== */
+  .cards-grid {
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:20px; padding:20px 16px;
+  }
+  .card { cursor:pointer; transition:transform 0.2s; display:block; text-decoration:none; color:#fff; }
+  .card:hover { transform:translateY(-3px); }
+  .card-thumb {
+    position:relative; width:100%; aspect-ratio:16/9;
+    border-radius:12px; overflow:hidden; background:#222;
+  }
+  .card-thumb img { width:100%; height:100%; object-fit:cover; }
+  .card-title {
+    font-size:14px; font-weight:500; margin-top:10px; line-height:1.4;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  }
+
   .footer {
-    margin-top:40px; padding:14px 16px;
+    margin-top:30px; padding:14px 16px;
     border-top:1px solid #272727;
     display:flex; flex-direction:column; align-items:center; gap:8px;
   }
@@ -109,12 +93,11 @@
   .footer-copy { font-size:11px; color:#666; }
 
   @media (max-width:600px) {
+    .cards-grid { grid-template-columns:repeat(2,1fr); gap:12px; padding:16px 10px; }
+    .card-title { font-size:12px; }
     .profile-pic { width:65px; height:65px; }
     .profile-info h1 { font-size:18px; }
     .header-banner { height:120px; }
-    .links-title { font-size:20px; }
-    .link-card { padding:12px 14px; font-size:14px; }
-    .link-card i { font-size:18px; }
     .social-icons a { width:38px; height:38px; font-size:16px; }
   }
 </style>
@@ -124,8 +107,7 @@
   <div class="header-banner"></div>
 
   <div class="profile-section">
-    <img class="profile-pic" src="https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiweb1.jpg
-" alt="حيدر الأعرجي">
+    <img class="profile-pic" src="https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiweb1.jpg" alt="حيدر الأعرجي">
     <div class="profile-info">
       <h1>حيدر الأعرجي</h1>
       <p class="desc">الموقع الرسمي للرادود حيدر الأعرجي</p>
@@ -134,12 +116,11 @@
 
   <div class="tabs-bar" id="tabsBar"></div>
 
-  <!-- قسم الروابط -->
-  <section class="links-section">
-    <h2 class="links-title" id="linksTitle"></h2>
-    <p class="links-desc" id="linksDesc"></p>
-    <div class="links-list" id="linksList"></div>
-  </section>
+  <div class="player-wrapper">
+    <div id="mainPlayer"></div>
+  </div>
+
+  <div class="cards-grid" id="cardsGrid"></div>
 
   <footer class="footer">
     <div class="social-icons" id="socialIcons"></div>
@@ -147,58 +128,51 @@
   </footer>
 
 <script>
-/* ===== الأقسام ===== */
 const tabsData = `
 الصفحة الرئيسية
-https://hr-80.github.io/haiaderalaraji.com
+index.html
 اللطميات والمجالس
-https://hr-80.github.io/video1/
+latmiyat.html
 الموالد والأفراح
-https://hr-80.github.io/video2/
+mawalid.html
 Shorts
-https://hr-80.github.io/video3/
+shorts.html
 التواصل الأجتماعي
-https://hr-80.github.io/haiaderalaraji/
+social.html`;
+
+const playerPlaylist = `
+https://www.youtube.com/watch?v=ZisrP8trNyI
+https://www.youtube.com/watch?v=gxT71HOdD-s
+https://www.youtube.com/watch?v=xeb6G1Ynhds
+https://www.youtube.com/watch?v=-3sCPZnHrF8
+https://www.youtube.com/watch?v=ifRcM6pj7k0
+https://www.youtube.com/watch?v=-7tpOMk-T8c
+https://www.youtube.com/watch?v=w_C8--IlUqE
+https://www.youtube.com/watch?v=4nMeTyGMWTQ
+https://www.youtube.com/watch?v=66wjuGhis_U
+https://www.youtube.com/watch?v=FBRfWXl5R-s
+https://www.youtube.com/watch?v=8WlSnJTyE7g
+https://www.youtube.com/watch?v=_duJdF6JD8o
+https://www.youtube.com/watch?v=vZkYPM6jMR4
+https://www.youtube.com/watch?v=Lnvh3bSyCNA
+https://www.youtube.com/watch?v=P8hvQPR8-ps
+https://www.youtube.com/watch?v=S4vuEihL_Mc
 `;
 
-/* ===== عنوان الصفحة ووصفها ===== */
-const pageTitle = "الموقع الرسمي للرادود حيدر الأعرجي";
-const pageDesc = "تابعونا على منصات التواصل الاجتماعي .";
+const cardsData = `
+اللطميات والمجالس
+https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiimg4.jpg
+latmiyat.html
+الموالد والأفراح
+https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiimg3.jpg
+mawalid.html
+Shorts
+https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiimg2.jpg
+shorts.html
+التواصل الأجتماعي
+https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiimg1.jpg
+social.html`;
 
-/* ===== كروت التواصل =====
-   اسم الأيقونة
-   اسم الكرت
-   الرابط
-   (المتاحة: facebook, instagram, youtube, tiktok, telegram, whatsapp, store, link)
-*/
-const linksData = `
-facebook
-فيسبوك
-https://www.facebook.com/hr.alaraji1
-instagram
-إنستغرام
-https://www.instagram.com/hr.alaraji
-youtube
-يوتيوب
-https://www.youtube.com/@hr.alaraji
-tiktok
-تيك توك
-https://www.tiktok.com/@hr.alaraji
-telegram
-تلجرام
-https://t.me/username
-whatsapp
-واتساب
-https://wa.me/9640000000000
-store
-متجر جوجل
-https://sites.google.com/view/haider-alaraji/home/application?pli=1&authuser=0
-link
-الموقع الألكتروني
-https://hr-80.github.io/haiaderalaraji.com
-`;
-
-/* ===== روابط التذييل ===== */
 const socialData = `
 facebook
 https://www.facebook.com/hr.alaraji1
@@ -219,13 +193,29 @@ const socialIcons = {
   instagram: 'fa-brands fa-instagram',
   youtube:   'fa-brands fa-youtube',
   tiktok:    'fa-brands fa-tiktok',
-  telegram:  'fa-brands fa-telegram',
-  whatsapp:  'fa-brands fa-whatsapp',
   store:     'fa-brands fa-google-play',
   link:      'fa-solid fa-link'
 };
 
-/* بناء الأقسام */
+function getVideoId(url) {
+  if (!url) return null;
+  url = url.trim();
+  if (/^[a-zA-Z0-9_-]{11}$/.test(url)) return url;
+  const patterns = [
+    /[?&]v=([a-zA-Z0-9_-]{11})/,
+    /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+    /\/embed\/([a-zA-Z0-9_-]{11})/,
+    /\/shorts\/([a-zA-Z0-9_-]{11})/,
+    /\/live\/([a-zA-Z0-9_-]{11})/,
+    /\/v\/([a-zA-Z0-9_-]{11})/
+  ];
+  for (let p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+}
+
 function buildTabs() {
   const bar = document.getElementById('tabsBar');
   const lines = tabsData.trim().split('\n').map(l=>l.trim()).filter(l=>l);
@@ -235,38 +225,31 @@ function buildTabs() {
     a.className = 'tab';
     a.href = lines[i+1] || '#';
     a.textContent = lines[i];
+    const cur = location.pathname.split('/').pop() || 'index.html';
+    if (a.getAttribute('href') === cur) a.classList.add('active');
     bar.appendChild(a);
   }
 }
 
-/* بناء العنوان والوصف */
-function buildPageInfo() {
-  document.getElementById('linksTitle').textContent = pageTitle;
-  document.getElementById('linksDesc').textContent = pageDesc;
-}
-
-/* بناء كروت التواصل */
-function buildLinks() {
-  const box = document.getElementById('linksList');
-  const lines = linksData.trim().split('\n').map(l=>l.trim()).filter(l=>l);
-  box.innerHTML = '';
+function buildCards() {
+  const grid = document.getElementById('cardsGrid');
+  const lines = cardsData.trim().split('\n').map(l=>l.trim()).filter(l=>l);
+  grid.innerHTML = '';
   for (let i=0; i<lines.length; i+=3) {
-    const key = lines[i].toLowerCase();
-    const name = lines[i+1];
-    const url = lines[i+2] || '#';
-    const icon = socialIcons[key];
-    if (!icon) continue;
+    const title = lines[i];
+    const img = lines[i+1] || '';
+    const link = lines[i+2] || '#';
     const a = document.createElement('a');
-    a.className = 'link-card';
-    a.href = url;
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.innerHTML = `<i class="${icon}"></i><span>${name}</span>`;
-    box.appendChild(a);
+    a.className = 'card';
+    a.href = link;
+    a.innerHTML = `
+      <div class="card-thumb"><img src="${img}" alt="${title}" loading="lazy"></div>
+      <div class="card-title">${title}</div>
+    `;
+    grid.appendChild(a);
   }
 }
 
-/* بناء أيقونات التذييل */
 function buildSocial() {
   const box = document.getElementById('socialIcons');
   const lines = socialData.trim().split('\n').map(l=>l.trim()).filter(l=>l);
@@ -286,9 +269,48 @@ function buildSocial() {
   }
 }
 
+/* ===== المشغل: تشغيل تلقائي متتالي ===== */
+const playerIds = playerPlaylist
+  .trim().split('\n').map(l=>l.trim()).filter(l=>l)
+  .map(getVideoId).filter(Boolean);
+
+let ytPlayer;
+let currentIndex = 0;
+
+function onYouTubeIframeAPIReady() {
+  if (playerIds.length === 0) return;
+  ytPlayer = new YT.Player('mainPlayer', {
+    width: '100%',
+    height: '100%',
+    videoId: playerIds[0],
+    playerVars: {
+      autoplay: 1,
+      mute: 1,
+      rel: 0,
+      playsinline: 1,
+      modestbranding: 1
+    },
+    events: {
+      'onReady': (e) => { e.target.playVideo(); },
+      'onStateChange': (e) => {
+        if (e.data === YT.PlayerState.ENDED) {
+          currentIndex = (currentIndex + 1) % playerIds.length;
+          ytPlayer.loadVideoById(playerIds[currentIndex]);
+        }
+      }
+    }
+  });
+}
+
+/* تحميل YouTube IFrame API */
+(function() {
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(tag);
+})();
+
 buildTabs();
-buildPageInfo();
-buildLinks();
+buildCards();
 buildSocial();
 </script>
 
