@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f0f0f">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="description" content="الموقع الرسمي للرادود حيدر الأعرجي">
+<title>حيدر الأعرجي</title>
+<link rel="icon" href="https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiweb1.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg:#0f0f0f;--panel:#1f1f1f;--line:#272727;--mut:#aaa;--r:12px;--max:1200px;color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto','Segoe UI',Tahoma,sans-serif;background:var(--bg);color:#fff;min-height:100dvh;display:flex;flex-direction:column}
+ul{list-style:none}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;inset-block-start:-60px;inset-inline-start:8px;background:#fff;color:#000;padding:8px 14px;border-radius:8px;z-index:50;transition:inset-block-start .2s}
+.skip:focus{inset-block-start:8px}
+
+.banner{height:clamp(120px,22vw,220px);background:url('https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiweb2.png') center/cover;border-radius:0 0 var(--r) var(--r)}
+.profile{display:flex;align-items:center;gap:16px;padding:16px;width:min(100%,var(--max));margin-inline:auto}
+.avatar{width:clamp(65px,10vw,90px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:3px solid var(--bg);flex-shrink:0}
+.name{font-size:clamp(18px,3vw,24px);font-weight:700;margin-bottom:6px}
+.desc{font-size:13px;color:var(--mut);line-height:1.5}
+
+.tabs{position:sticky;top:0;z-index:10;display:flex;gap:24px;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(15,15,15,.9);backdrop-filter:blur(10px);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;white-space:nowrap;font-weight:700;font-size:15px;padding-bottom:6px;transition:opacity .2s}
+.tab:hover{opacity:.7}
+.tab::after{content:"";position:absolute;inset-inline:0;bottom:0;height:2px;background:#fff;transform:scaleX(0);transition:transform .25s}
+.tab[aria-current=page]::after{transform:scaleX(1)}
+
+main{flex:1;outline:none;width:min(100%,var(--max));margin-inline:auto;padding-bottom:24px;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sec-title{font-size:clamp(18px,3vw,24px);padding:20px 16px 4px}
+.back{display:inline-block;padding:16px 16px 0;color:var(--mut);font-size:14px}
+.back:hover{color:#fff}
+
+.player{width:min(100%,960px);margin-inline:auto}
+.frame{aspect-ratio:16/9;background:#000;position:relative}
+.frame iframe,.frame>div{position:absolute;inset:0;width:100%!important;height:100%!important;border:0}
+.now{padding:10px 16px;font-size:15px;font-weight:500;min-height:1.5em}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:20px;padding:20px 16px}
+.grid.shorts{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.card{display:block;width:100%;background:none;border:0;color:inherit;font:inherit;text-align:start;cursor:pointer}
+.thumb{display:block;position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:#222;transition:transform .25s,box-shadow .25s}
+.shorts .thumb{aspect-ratio:9/16}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .thumb{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.6)}
+.card:hover img{transform:scale(1.05)}
+.card[aria-current=true] .thumb{outline:2px solid #fff}
+.ct{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:10px;font-size:14px;font-weight:500;line-height:1.4}
+
+.links{display:grid;gap:12px;padding:20px 16px;width:min(100%,560px);margin-inline:auto}
+.link{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--panel);border-radius:var(--r);font-weight:500;transition:background .2s,transform .2s}
+.link:hover{background:#2c2c2c;transform:translateX(-4px)}
+.link i{width:24px;text-align:center;font-size:18px}
+
+.site-footer{margin-top:auto;padding:14px 16px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:10px}
+.social{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.social a{width:42px;height:42px;border-radius:50%;background:var(--panel);display:grid;place-items:center;font-size:18px;transition:background .2s,transform .2s}
+.social a:hover{background:#333;transform:translateY(-3px)}
+.site-footer small{color:#666;font-size:11px}
+
+dialog{border:0;padding:0;margin:auto;background:#000;border-radius:var(--r);overflow:hidden;width:min(92vw,calc(88dvh*9/16),400px);aspect-ratio:9/16}
+dialog::backdrop{background:rgba(0,0,0,.8)}
+dialog iframe{width:100%;height:100%;border:0}
+.x{position:absolute;inset:8px auto auto 8px;z-index:2;width:36px;height:36px;border:0;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:18px;cursor:pointer}
+
+@media (max-width:600px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px;padding:16px 10px}
+  .grid.shorts{grid-template-columns:repeat(2,1fr)}
+  .ct{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){*,::before,::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطي إلى المحتوى</a>
+
+<header>
+  <div class="banner" role="img" aria-label="غلاف حيدر الأعرجي"></div>
+  <div class="profile">
+    <img class="avatar" src="https://raw.githubusercontent.com/h-80/img/refs/heads/main/alarajiweb1.jpg" alt="حيدر الأعرجي" width="80" height="80">
+    <div>
+      <p class="name">حيدر الأعرجي</p>
+      <p class="desc">الموقع الرسمي للرادود حيدر الأعرجي</p>
+    </div>
+  </div>
+  <nav class="tabs" id="nav" aria-label="التنقل الرئيسي"></nav>
+</header>
+
+<main id="main" tabindex="-1"><noscript><p class="sec-title">يتطلب هذا الموقع تفعيل JavaScript.</p></noscript></main>
+
+<footer class="site-footer">
+  <ul class="social" id="social"></ul>
+  <small>© 2025 حيدر الأعرجي - جميع الحقوق محفوظة</small>
+</footer>
+
+<dialog id="dlg" aria-label="مشغل المقطع">
+  <button class="x" type="button" aria-label="إغلاق">✕</button>
+  <iframe title="مقطع Shorts" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+</dialog>
+
+<script>
+'use strict';
+const DATA = {"playlist": ["ZisrP8trNyI", "gxT71HOdD-s", "xeb6G1Ynhds", "-3sCPZnHrF8", "ifRcM6pj7k0", "-7tpOMk-T8c", "w_C8--IlUqE", "4nMeTyGMWTQ", "66wjuGhis_U", "FBRfWXl5R-s", "8WlSnJTyE7g", "_duJdF6JD8o", "vZkYPM6jMR4", "Lnvh3bSyCNA", "P8hvQPR8-ps", "S4vuEihL_Mc"], "latmiyat": [{"t": "محرم يامحرم", "id": "ZisrP8trNyI"}, {"t": "محرم يامحرم - قناة الأوحد", "id": "gxT71HOdD-s"}, {"t": "جرح حيدر", "id": "xeb6G1Ynhds"}, {"t": "انه الغريبه انه", "id": "-3sCPZnHrF8"}, {"t": "اليوم ازلزلها الطفوف", "id": "ifRcM6pj7k0"}, {"t": "اليوم ازلزلها الطفوف", "id": "-7tpOMk-T8c"}, {"t": "انا العباس", "id": "w_C8--IlUqE"}, {"t": "انا العباس", "id": "4nMeTyGMWTQ"}, {"t": "يراعي البيت", "id": "66wjuGhis_U"}, {"t": "جرح حيدر", "id": "FBRfWXl5R-s"}, {"t": "رثاء - جلسة حسينية", "id": "8WlSnJTyE7g"}, {"t": "رثاء - جلسة حسينية", "id": "_duJdF6JD8o"}, {"t": "كوم الزينب ياواليها", "id": "vZkYPM6jMR4"}, {"t": "أه العليك ياابو اليمه", "id": "Lnvh3bSyCNA"}, {"t": "أدير العين في اول زيارة للأربعين بعد سقوط النظام عام 2003", "id": "P8hvQPR8-ps"}, {"t": "نعي عن الب", "id": "S4vuEihL_Mc"}], "mawalid": [{"t": "لاتناشدني", "id": "zubGhSLwfFg"}, {"t": "فاطمه فاطمه قناة فورتين", "id": "tvpMLQ6f3Rw"}, {"t": "هلا بحسين", "id": "bR0_jmVP-I0"}, {"t": "ياجبل ماله مثيل", "id": "EX9GwhWNEF0"}, {"t": "عاجل عاجل عاجل", "id": "m4tJBwWtV48"}, {"t": "اجينه الكربلا مشايه", "id": "nT70GclYiig"}, {"t": "علينه الغيبة طالت", "id": "kcMIHk62EzU"}, {"t": "علينه الغيبة طالت", "id": "L9xnEuQGoAE"}, {"t": "هلا بحسين", "id": "FTlKFQRl8aQ"}, {"t": "هلا بحسين  2009", "id": "91Hnd9UAl4w"}, {"t": "نصلي كلنا على النبي 2009", "id": "camc8KITqms"}], "shorts1": ["4ZyRh-Q3oIo", "AOiRrVdFRv0", "PSuskcWil9Y", "6_8teXDT_c4", "Uag9IvgAP38", "VRuFRi5DBV0", "upgUH3ymHzs", "o39L3F7lP2o", "tvvIrhFxcY0", "-aV03fHmFcM", "zk9DdBtEJ8g", "ZH36mjW7qKs", "R2WaJB0zoSM", "gbiv6Piyi6A", "VvB-jO0W_ec", "A0cjC5SY6do", "iqyf2Q5McNM", "fCRG6wKOoSI", "iRn3BMAfLGg", "XBSLxcN5B8E", "zaWeZPoJtjY"], "shorts2": ["uHHwogpuWDg", "daIlScuh2L4", "si_7uNWXLuQ", "2y3z4Cb8QMs", "EL8Du4Pfgn4", "lVhYOvXf_YE", "VoipED7l2Lk", "C13q091z6CM", "r6jdDbN7wlA", "GDNY6cDI8Y4", "8eVcsE4WDrc", "ozCosIR0-J0", "WbWPnKBKFIA"], "links": [{"k": "facebook", "l": "فيسبوك", "url": "https://www.facebook.com/hr.alaraji1"}, {"k": "instagram", "l": "إنستغرام", "url": "https://www.instagram.com/hr.alaraji"}, {"k": "youtube", "l": "يوتيوب", "url": "https://www.youtube.com/@hr.alaraji"}, {"k": "tiktok", "l": "تيك توك", "url": "https://www.tiktok.com/@hr.alaraji"}, {"k": "store", "l": "متجر جوجل", "url": "https://sites.google.com/view/haider-alaraji/home/application?pli=1&authuser=0"}, {"k": "link", "l": "الموقع الألكتروني", "url": "https://hr-80.github.io/haiaderalaraji.com"}], "footer": ["facebook", "instagram", "youtube", "tiktok", "store", "link"]};
+
+const IMG = 'https://raw.githubusercontent.com/h-80/img/refs/heads/main/';
+const ICONS = {
+  facebook:'fa-brands fa-facebook-f', instagram:'fa-brands fa-instagram', youtube:'fa-brands fa-youtube',
+  tiktok:'fa-brands fa-tiktok', telegram:'fa-brands fa-telegram', whatsapp:'fa-brands fa-whatsapp',
+  store:'fa-brands fa-google-play', link:'fa-solid fa-link'
+};
+const NAV = [['','الصفحة الرئيسية'],['latmiyat','اللطميات والمجالس'],['mawalid','الموالد والأفراح'],['shorts','Shorts'],['social','التواصل الأجتماعي']];
+const SECTIONS = [['latmiyat','اللطميات والمجالس','alarajiimg4.jpg'],['mawalid','الموالد والأفراح','alarajiimg3.jpg'],['shorts','Shorts','alarajiimg2.jpg'],['social','التواصل الأجتماعي','alarajiimg1.jpg']];
+
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const thumb = id => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+const cardImg = src => `<span class="thumb"><img loading="lazy" src="${src}" alt=""></span>`;
+
+/* ===== مشغل يوتيوب (تشغيل متتالي) ===== */
+const player = {
+  yt: null, ids: [], i: 0, cb: () => {}, q: null,
+  mount(host, ids, i = 0, cb = () => {}) {
+    Object.assign(this, { ids, i, cb });
+    const make = () => {
+      if (!host.isConnected) return;
+      host.innerHTML = '<div id="yt"></div>';
+      this.yt = new YT.Player('yt', {
+        width: '100%', height: '100%', videoId: ids[i],
+        playerVars: { autoplay: 1, mute: 1, rel: 0, playsinline: 1, modestbranding: 1 },
+        events: {
+          onReady: e => e.target.playVideo(),
+          onStateChange: e => { if (e.data === YT.PlayerState.ENDED) this.play((this.i + 1) % this.ids.length); }
+        }
+      });
+    };
+    if (window.YT?.Player) return make();
+    this.q = make;
+    if (!$('#yt-api')) {
+      const s = document.createElement('script');
+      s.id = 'yt-api'; s.src = 'https://www.youtube.com/iframe_api';
+      document.head.append(s);
+    }
+  },
+  play(i, user = false) {
+    this.i = i; this.cb(i);
+    if (!this.yt?.loadVideoById) return;
+    if (user) this.yt.unMute?.();
+    this.yt.loadVideoById(this.ids[i]);
+  },
+  destroy() { this.q = null; try { this.yt?.destroy(); } catch {} this.yt = null; }
+};
+window.onYouTubeIframeAPIReady = () => player.q?.();
+
+/* ===== الصفحات ===== */
+const linkCard = (href, title, img) =>
+  `<li><a class="card" href="${href}">${cardImg(img)}<span class="ct">${esc(title)}</span></a></li>`;
+
+const videoPage = (title, list) => ({
+  title,
+  html: () => `<h1 class="sec-title">${title}</h1>
+    <section class="player" aria-label="المشغل"><div class="frame" id="frame"></div><p class="now" id="now" aria-live="polite"></p></section>
+    <ul class="grid" id="list">${list.map((v, i) =>
+      `<li><button class="card" type="button" data-i="${i}">${cardImg(thumb(v.id))}<span class="ct">${esc(v.t)}</span></button></li>`).join('')}</ul>`,
+  mount() {
+    const box = $('#list'), now = $('#now');
+    const mark = i => {
+      box.querySelectorAll('.card').forEach((b, j) => b.setAttribute('aria-current', j === i));
+      now.textContent = list[i].t;
+    };
+    mark(0);
+    player.mount($('#frame'), list.map(v => v.id), 0, mark);
+    box.onclick = e => {
+      const b = e.target.closest('[data-i]');
+      if (!b) return;
+      player.play(+b.dataset.i, true);
+      $('#frame').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+  }
+});
+
+const shortsPage = n => ({
+  title: `شورتز ${n}`,
+  html: () => `<a class="back" href="#/shorts">→ Shorts</a><h1 class="sec-title">شورتز ${n}</h1>
+    <ul class="grid shorts" id="list">${DATA['shorts' + n].map((id, i) =>
+      `<li><button class="card" type="button" data-id="${id}">${cardImg(thumb(id))}<span class="ct">مقطع ${i + 1}</span></button></li>`).join('')}</ul>`,
+  mount() {
+    $('#list').onclick = e => {
+      const b = e.target.closest('[data-id]');
+      if (!b) return;
+      $('iframe', dlg).src = `https://www.youtube.com/embed/${b.dataset.id}?autoplay=1&rel=0&playsinline=1`;
+      dlg.showModal();
+    };
+  }
+});
+
+const ROUTES = {
+  '': {
+    title: 'الرئيسية',
+    html: () => `<h1 class="sr-only">حيدر الأعرجي</h1>
+      <section class="player" aria-label="المشغل"><div class="frame" id="frame"></div></section>
+      <h2 class="sec-title">الأقسام</h2>
+      <ul class="grid">${SECTIONS.map(([k, t, f]) => linkCard('#/' + k, t, IMG + f)).join('')}</ul>`,
+    mount: () => player.mount($('#frame'), DATA.playlist)
+  },
+  latmiyat: videoPage('اللطميات والمجالس', DATA.latmiyat),
+  mawalid: videoPage('الموالد والأفراح', DATA.mawalid),
+  shorts: {
+    title: 'Shorts',
+    html: () => `<h1 class="sr-only">Shorts</h1>
+      <section class="player" aria-label="المشغل"><div class="frame" id="frame"></div></section>
+      <ul class="grid">${linkCard('#/shorts/1', 'اللطميات والمجالس', IMG + 'alarajiimg4.jpg')}${linkCard('#/shorts/2', 'الموالد والأفراح', IMG + 'alarajiimg3.jpg')}</ul>`,
+    mount: () => player.mount($('#frame'), DATA.playlist)
+  },
+  'shorts/1': shortsPage(1),
+  'shorts/2': shortsPage(2),
+  social: {
+    title: 'التواصل الأجتماعي',
+    html: () => `<h1 class="sec-title">التواصل الأجتماعي</h1>
+      <ul class="links">${DATA.links.map(l =>
+        `<li><a class="link" href="${esc(l.url)}" target="_blank" rel="noopener"><i class="${ICONS[l.k] || ICONS.link}" aria-hidden="true"></i><span>${esc(l.l)}</span></a></li>`).join('')}</ul>`
+  }
+};
+
+/* ===== الهيكل الثابت ===== */
+const main = $('#main'), nav = $('#nav'), dlg = $('#dlg');
+nav.innerHTML = NAV.map(([k, t]) => `<a class="tab" href="#/${k}" data-k="${k}">${t}</a>`).join('');
+$('#social').innerHTML = DATA.links.filter(l => DATA.footer.includes(l.k)).map(l =>
+  `<li><a href="${esc(l.url)}" target="_blank" rel="noopener" aria-label="${esc(l.l)}"><i class="${ICONS[l.k] || ICONS.link}" aria-hidden="true"></i></a></li>`).join('');
+
+dlg.addEventListener('close', () => $('iframe', dlg).removeAttribute('src'));
+dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('.x')) dlg.close(); });
+
+/* ===== الموجّه (Hash Router) ===== */
+function route(focus) {
+  const path = location.hash.replace(/^#\/?/, '').replace(/\/$/, '');
+  const known = path in ROUTES;
+  const r = ROUTES[known ? path : ''];
+  const base = known ? path.split('/')[0] : '';
+  player.destroy();
+  if (dlg.open) dlg.close();
+  main.innerHTML = r.html();
+  r.mount?.();
+  document.title = `${r.title} - حيدر الأعرجي`;
+  nav.querySelectorAll('.tab').forEach(a => {
+    const on = a.dataset.k === base;
+    a.toggleAttribute('aria-current', on);
+    if (on) { a.setAttribute('aria-current', 'page'); a.scrollIntoView({ inline: 'center', block: 'nearest' }); }
+  });
+  scrollTo(0, 0);
+  if (focus) main.focus({ preventScroll: true });
+}
+addEventListener('hashchange', () => route(true));
+route(false);
+
+if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+</script>
+</body>
+</html>
