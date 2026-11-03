@@ -1,5 +1,5 @@
 'use strict';
-const CACHE = 'haider-app-v3';
+const CACHE = 'haider-app-v4';
 const SHELL = ['./', './index.html', './manifest.json', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-192.png', './icons/maskable-512.png'];
 
 self.addEventListener('install', e => {
@@ -23,6 +23,15 @@ self.addEventListener('fetch', e => {
   // الصفحة: الشبكة أولاً ثم النسخة المحفوظة عند عدم وجود إنترنت
   if (request.mode === 'navigate') {
     e.respondWith(fetch(request).catch(() => caches.match('./index.html')));
+    return;
+  }
+  // ملفات الجذر (بيانات الفيديوهات): الشبكة أولاً حتى تظهر الإضافات فوراً
+  if (!url.pathname.includes('/app/')) {
+    e.respondWith(
+      fetch(request)
+        .then(res => { if (res.ok) caches.open(CACHE).then(c => c.put(request, res.clone())); return res; })
+        .catch(() => caches.match(request))
+    );
     return;
   }
   // باقي ملفات الموقع: من الكاش مع تحديثها بالخلفية

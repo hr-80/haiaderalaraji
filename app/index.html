@@ -112,7 +112,8 @@ dialog iframe{width:100%;height:100%;border:0}
 
 <script>
 'use strict';
-const DATA = {"playlist": ["ZisrP8trNyI", "gxT71HOdD-s", "xeb6G1Ynhds", "-3sCPZnHrF8", "ifRcM6pj7k0", "-7tpOMk-T8c", "w_C8--IlUqE", "4nMeTyGMWTQ", "66wjuGhis_U", "FBRfWXl5R-s", "8WlSnJTyE7g", "_duJdF6JD8o", "vZkYPM6jMR4", "Lnvh3bSyCNA", "P8hvQPR8-ps", "S4vuEihL_Mc"], "latmiyat": [{"t": "محرم يامحرم", "id": "ZisrP8trNyI"}, {"t": "محرم يامحرم - قناة الأوحد", "id": "gxT71HOdD-s"}, {"t": "جرح حيدر", "id": "xeb6G1Ynhds"}, {"t": "انه الغريبه انه", "id": "-3sCPZnHrF8"}, {"t": "اليوم ازلزلها الطفوف", "id": "ifRcM6pj7k0"}, {"t": "اليوم ازلزلها الطفوف", "id": "-7tpOMk-T8c"}, {"t": "انا العباس", "id": "w_C8--IlUqE"}, {"t": "انا العباس", "id": "4nMeTyGMWTQ"}, {"t": "يراعي البيت", "id": "66wjuGhis_U"}, {"t": "جرح حيدر", "id": "FBRfWXl5R-s"}, {"t": "رثاء - جلسة حسينية", "id": "8WlSnJTyE7g"}, {"t": "رثاء - جلسة حسينية", "id": "_duJdF6JD8o"}, {"t": "كوم الزينب ياواليها", "id": "vZkYPM6jMR4"}, {"t": "أه العليك ياابو اليمه", "id": "Lnvh3bSyCNA"}, {"t": "أدير العين في اول زيارة للأربعين بعد سقوط النظام عام 2003", "id": "P8hvQPR8-ps"}, {"t": "نعي عن الب", "id": "S4vuEihL_Mc"}], "mawalid": [{"t": "لاتناشدني", "id": "zubGhSLwfFg"}, {"t": "فاطمه فاطمه قناة فورتين", "id": "tvpMLQ6f3Rw"}, {"t": "هلا بحسين", "id": "bR0_jmVP-I0"}, {"t": "ياجبل ماله مثيل", "id": "EX9GwhWNEF0"}, {"t": "عاجل عاجل عاجل", "id": "m4tJBwWtV48"}, {"t": "اجينه الكربلا مشايه", "id": "nT70GclYiig"}, {"t": "علينه الغيبة طالت", "id": "kcMIHk62EzU"}, {"t": "علينه الغيبة طالت", "id": "L9xnEuQGoAE"}, {"t": "هلا بحسين", "id": "FTlKFQRl8aQ"}, {"t": "هلا بحسين  2009", "id": "91Hnd9UAl4w"}, {"t": "نصلي كلنا على النبي 2009", "id": "camc8KITqms"}], "shorts1": ["4ZyRh-Q3oIo", "AOiRrVdFRv0", "PSuskcWil9Y", "6_8teXDT_c4", "Uag9IvgAP38", "VRuFRi5DBV0", "upgUH3ymHzs", "o39L3F7lP2o", "tvvIrhFxcY0", "-aV03fHmFcM", "zk9DdBtEJ8g", "ZH36mjW7qKs", "R2WaJB0zoSM", "gbiv6Piyi6A", "VvB-jO0W_ec", "A0cjC5SY6do", "iqyf2Q5McNM", "fCRG6wKOoSI", "iRn3BMAfLGg", "XBSLxcN5B8E", "zaWeZPoJtjY"], "shorts2": ["uHHwogpuWDg", "daIlScuh2L4", "si_7uNWXLuQ", "2y3z4Cb8QMs", "EL8Du4Pfgn4", "lVhYOvXf_YE", "VoipED7l2Lk", "C13q091z6CM", "r6jdDbN7wlA", "GDNY6cDI8Y4", "8eVcsE4WDrc", "ozCosIR0-J0", "WbWPnKBKFIA"], "links": [{"k": "facebook", "l": "فيسبوك", "url": "https://www.facebook.com/hr.alaraji1"}, {"k": "instagram", "l": "إنستغرام", "url": "https://www.instagram.com/hr.alaraji"}, {"k": "youtube", "l": "يوتيوب", "url": "https://www.youtube.com/@hr.alaraji"}, {"k": "tiktok", "l": "تيك توك", "url": "https://www.tiktok.com/@hr.alaraji"}, {"k": "store", "l": "متجر جوجل", "url": "https://sites.google.com/view/haider-alaraji/home/application?pli=1&authuser=0"}, {"k": "link", "l": "الموقع الألكتروني", "url": "https://hr-80.github.io/haiaderalaraji.com"}], "footer": ["facebook", "instagram", "youtube", "tiktok", "store", "link"]};
+const FALLBACK = {"playlist": ["ZisrP8trNyI", "gxT71HOdD-s", "xeb6G1Ynhds", "-3sCPZnHrF8", "ifRcM6pj7k0", "-7tpOMk-T8c", "w_C8--IlUqE", "4nMeTyGMWTQ", "66wjuGhis_U", "FBRfWXl5R-s", "8WlSnJTyE7g", "_duJdF6JD8o", "vZkYPM6jMR4", "Lnvh3bSyCNA", "P8hvQPR8-ps", "S4vuEihL_Mc"], "latmiyat": [{"t": "محرم يامحرم", "id": "ZisrP8trNyI"}, {"t": "محرم يامحرم - قناة الأوحد", "id": "gxT71HOdD-s"}, {"t": "جرح حيدر", "id": "xeb6G1Ynhds"}, {"t": "انه الغريبه انه", "id": "-3sCPZnHrF8"}, {"t": "اليوم ازلزلها الطفوف", "id": "ifRcM6pj7k0"}, {"t": "اليوم ازلزلها الطفوف", "id": "-7tpOMk-T8c"}, {"t": "انا العباس", "id": "w_C8--IlUqE"}, {"t": "انا العباس", "id": "4nMeTyGMWTQ"}, {"t": "يراعي البيت", "id": "66wjuGhis_U"}, {"t": "جرح حيدر", "id": "FBRfWXl5R-s"}, {"t": "رثاء - جلسة حسينية", "id": "8WlSnJTyE7g"}, {"t": "رثاء - جلسة حسينية", "id": "_duJdF6JD8o"}, {"t": "كوم الزينب ياواليها", "id": "vZkYPM6jMR4"}, {"t": "أه العليك ياابو اليمه", "id": "Lnvh3bSyCNA"}, {"t": "أدير العين في اول زيارة للأربعين بعد سقوط النظام عام 2003", "id": "P8hvQPR8-ps"}, {"t": "نعي عن الب", "id": "S4vuEihL_Mc"}], "mawalid": [{"t": "لاتناشدني", "id": "zubGhSLwfFg"}, {"t": "فاطمه فاطمه قناة فورتين", "id": "tvpMLQ6f3Rw"}, {"t": "هلا بحسين", "id": "bR0_jmVP-I0"}, {"t": "ياجبل ماله مثيل", "id": "EX9GwhWNEF0"}, {"t": "عاجل عاجل عاجل", "id": "m4tJBwWtV48"}, {"t": "اجينه الكربلا مشايه", "id": "nT70GclYiig"}, {"t": "علينه الغيبة طالت", "id": "kcMIHk62EzU"}, {"t": "علينه الغيبة طالت", "id": "L9xnEuQGoAE"}, {"t": "هلا بحسين", "id": "FTlKFQRl8aQ"}, {"t": "هلا بحسين  2009", "id": "91Hnd9UAl4w"}, {"t": "نصلي كلنا على النبي 2009", "id": "camc8KITqms"}], "shorts1": ["4ZyRh-Q3oIo", "AOiRrVdFRv0", "PSuskcWil9Y", "6_8teXDT_c4", "Uag9IvgAP38", "VRuFRi5DBV0", "upgUH3ymHzs", "o39L3F7lP2o", "tvvIrhFxcY0", "-aV03fHmFcM", "zk9DdBtEJ8g", "ZH36mjW7qKs", "R2WaJB0zoSM", "gbiv6Piyi6A", "VvB-jO0W_ec", "A0cjC5SY6do", "iqyf2Q5McNM", "fCRG6wKOoSI", "iRn3BMAfLGg", "XBSLxcN5B8E", "zaWeZPoJtjY"], "shorts2": ["uHHwogpuWDg", "daIlScuh2L4", "si_7uNWXLuQ", "2y3z4Cb8QMs", "EL8Du4Pfgn4", "lVhYOvXf_YE", "VoipED7l2Lk", "C13q091z6CM", "r6jdDbN7wlA", "GDNY6cDI8Y4", "8eVcsE4WDrc", "ozCosIR0-J0", "WbWPnKBKFIA"], "links": [{"k": "facebook", "l": "فيسبوك", "url": "https://www.facebook.com/hr.alaraji1"}, {"k": "instagram", "l": "إنستغرام", "url": "https://www.instagram.com/hr.alaraji"}, {"k": "youtube", "l": "يوتيوب", "url": "https://www.youtube.com/@hr.alaraji"}, {"k": "tiktok", "l": "تيك توك", "url": "https://www.tiktok.com/@hr.alaraji"}, {"k": "store", "l": "متجر جوجل", "url": "https://sites.google.com/view/haider-alaraji/home/application?pli=1&authuser=0"}, {"k": "link", "l": "الموقع الألكتروني", "url": "https://hr-80.github.io/haiaderalaraji.com"}], "footer": ["facebook", "instagram", "youtube", "tiktok", "store", "link"]};
+let DATA;
 
 const IMG = 'https://raw.githubusercontent.com/h-80/img/refs/heads/main/';
 const ICONS = {
@@ -127,6 +128,47 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const thumb = id => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 const cardImg = src => `<span class="thumb"><img loading="lazy" src="${src}" alt=""></span>`;
+
+/* ===== قراءة البيانات من ملفات الجذر (نفس ملفات الموقع) ===== */
+const block = (txt, name) => {
+  const m = txt.match(new RegExp('const ' + name + ' = `([\\s\\S]*?)`;'));
+  return m ? m[1].split('\n').map(l => l.trim()).filter(Boolean) : [];
+};
+const vid = u => (u.match(/(?:v=|\/shorts\/|youtu\.be\/)([\w-]{11})(?=[&?#]|$)/) || [])[1];
+const ids = L => L.map(vid).filter(Boolean);
+const titled = L => {
+  const out = [];
+  for (let i = 0; i + 1 < L.length; i += 2) { const id = vid(L[i + 1]); if (id) out.push({ t: L[i], id }); }
+  return out;
+};
+const getText = async f => {
+  const r = await fetch('../' + f, { cache: 'no-cache' });
+  if (!r.ok) throw new Error(f);
+  return r.text();
+};
+async function loadData() {
+  try {
+    const [lat, maw, sh, s1, s2, soc, idx] = await Promise.all(
+      ['latmiyat', 'mawalid', 'shorts', 'shorts1', 'shorts2', 'social', 'index'].map(n => getText(n + '.html')));
+    const links = [], L = block(soc, 'linksData');
+    for (let i = 0; i + 2 < L.length; i += 3) {
+      const [k, l, url] = [L[i], L[i + 1], L[i + 2]];
+      if (/t\.me\/username|wa\.me\/9640000000000/.test(url)) continue; // روابط وهمية
+      links.push({ k, l, url });
+    }
+    const d = {
+      playlist: ids(block(sh, 'playerPlaylist')),
+      latmiyat: titled(block(lat, 'videosData')),
+      mawalid: titled(block(maw, 'videosData')),
+      shorts1: ids(block(s1, 'shortsData')),
+      shorts2: ids(block(s2, 'shortsData')),
+      links,
+      footer: block(idx, 'socialData').filter((_, i) => i % 2 === 0)
+    };
+    if (!d.latmiyat.length || !d.mawalid.length || !d.playlist.length) throw new Error('empty');
+    return d;
+  } catch { return FALLBACK; }
+}
 
 /* ===== مشغل يوتيوب (تشغيل متتالي) ===== */
 const player = {
@@ -205,7 +247,7 @@ const shortsPage = n => ({
   }
 });
 
-const ROUTES = {
+const buildRoutes = () => ({
   '': {
     title: 'الرئيسية',
     html: () => `<h1 class="sr-only">حيدر الأعرجي</h1>
@@ -231,19 +273,21 @@ const ROUTES = {
       <ul class="links">${DATA.links.map(l =>
         `<li><a class="link" href="${esc(l.url)}" target="_blank" rel="noopener"><i class="${ICONS[l.k] || ICONS.link}" aria-hidden="true"></i><span>${esc(l.l)}</span></a></li>`).join('')}</ul>`
   }
-};
+});
+let ROUTES;
 
 /* ===== الهيكل الثابت ===== */
 const main = $('#main'), nav = $('#nav'), dlg = $('#dlg');
 nav.innerHTML = NAV.map(([k, t]) => `<a class="tab" href="#/${k}" data-k="${k}">${t}</a>`).join('');
-$('#social').innerHTML = DATA.links.filter(l => DATA.footer.includes(l.k)).map(l =>
-  `<li><a href="${esc(l.url)}" target="_blank" rel="noopener" aria-label="${esc(l.l)}"><i class="${ICONS[l.k] || ICONS.link}" aria-hidden="true"></i></a></li>`).join('');
+const renderFooter = () => { $('#social').innerHTML = DATA.links.filter(l => DATA.footer.includes(l.k)).map(l =>
+  `<li><a href="${esc(l.url)}" target="_blank" rel="noopener" aria-label="${esc(l.l)}"><i class="${ICONS[l.k] || ICONS.link}" aria-hidden="true"></i></a></li>`).join(''); };
 
 dlg.addEventListener('close', () => $('iframe', dlg).removeAttribute('src'));
 dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('.x')) dlg.close(); });
 
 /* ===== الموجّه (Hash Router) ===== */
 function route(focus) {
+  if (!ROUTES) return;
   const path = location.hash.replace(/^#\/?/, '').replace(/\/$/, '');
   const known = path in ROUTES;
   const r = ROUTES[known ? path : ''];
@@ -262,7 +306,8 @@ function route(focus) {
   if (focus) main.focus({ preventScroll: true });
 }
 addEventListener('hashchange', () => route(true));
-route(false);
+main.innerHTML = '<p class="sec-title">جاري التحميل…</p>';
+loadData().then(d => { DATA = d; ROUTES = buildRoutes(); renderFooter(); route(false); });
 
 if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 </script>
